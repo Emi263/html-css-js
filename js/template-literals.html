@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch with Template Literals and innerHTML</title>
+</head>
+<body>
+  <h1>Fetch with Template Literals and innerHTML</h1>
+
+  <div id="dataContainer"></div>
+
+  <script>
+    const dataContainer = document.getElementById("dataContainer");
+
+    // Example variables for dynamic URL
+    const baseUrl = "https://jsonplaceholder.typicode.com";
+    const resource = "posts";
+    const postId = 1;
+
+    // Construct the URL using template literals
+    const apiUrl = `${baseUrl}/${resource}/${postId}`;
+
+    // Function to fetch data from the API and populate the HTML element
+    function fetchDataAndPopulateContainer() {
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(post => {
+          // Create an HTML content using template literals
+          const htmlContent = `
+            <h2>${post.title}</h2>
+            <p>${post.body}</p>
+          `;
+
+          // Insert the HTML content into the dataContainer
+          dataContainer.innerHTML = htmlContent;
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    }
+
+    fetchDataAndPopulateContainer();
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Selectors Example</title>
+    <style>
+        /* Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Type Selector */
+        h1 {
+            color: blue;
+        }
+
+        /* Class Selector */
+        .myClass {
+            font-weight: bold;
+        }
+
+        /* ID Selector */
+        #myId {
+            background-color: lightgray;
+        }
+
+        /* Descendant Selector */
+        div > p {
+            color: red;
+        }
+
+        /* Child Selector */
+        ul > li {
+            list-style-type: square;
+        }
+
+        /* Attribute Selector */
+        a[href*="example"] {
+            color: green;
+        }
+
+        /* Pseudo-Class Selector */
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="test">Paragraph inside div</p>
+        <section>
+            <p class="test">Paragraph inside section</p>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Cascade Example</title>
+    <style>
+        /* User Agent Styles */
+        p {
+            font-size: 16px; /* Default font size */
+        }
+
+        /* External Stylesheet - Lower Specificity */
+        .myClass {
+            font-size: 20px; /* Applied to elements with class "myClass" */
+        }
+
+        /* ID Selector - Higher Specificity */
+        #myId {
+            font-size: 26px; /* Applied to the element with ID "myId" */
+        }
+
+        /* Internal Styles - Higher Specificity */
+        p {
+            font-size: 24px; /* Applied to all <p> elements in this scope */
+        }
+
+        /* Inline Styles - Highest Specificity */
+        p.special {
+            font-size: 30px !important; /* Applied to <p> elements with class "special" */
+        }
+    </style>
+</head>
+<body>
+    <p>This is a regular paragraph.</p> <!-- Font size: 24px -->
+    <p class="myClass">This paragraph has a class.</p> <!-- Font size: 20px -->
+    <p id="myId">This paragraph has an ID.</p> <!-- Font size: 26px -->
+    <p class="myClass special">This paragraph has class and inline style.</p> <!-- Font size: 30px -->
+</body>
+</html>

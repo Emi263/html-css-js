@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Data Fetching and List Population</title>
+</head>
+<body>
+  <h1>API Data Fetching and List Population</h1>
+
+  <ul id="dataList"></ul>
+
+  <script>
+    const users = [
+    {
+        name: "John Doe",
+        age: 25,
+        address: {
+            street: "123 Main St",
+            city: "City1",
+            state: "State1"
+        },
+        profession: "Engineer"
+    },
+    {
+        name: "Jane Smith",
+        age: 30,
+        address: {
+            street: "456 Elm St",
+            city: "City2",
+            state: "State2"
+        },
+        profession: "Teacher"
+    },
+    {
+        name: "Mike Johnson",
+        age: 40,
+        address: {
+            street: "789 Oak St",
+            city: "City3",
+            state: "State3"
+        },
+        profession: "Doctor"
+    },
+    {
+        name: "Emily Wilson",
+        age: 35,
+        address: {
+            street: "101 Pine St",
+            city: "City4",
+            state: "State4"
+        },
+        profession: "Designer"
+    },
+    {
+        name: "David Brown",
+        age: 28,
+        address: {
+            street: "222 Cedar St",
+            city: "City5",
+            state: "State5"
+        },
+        profession: "Accountant"
+    },
+    {
+        name: "Sarah Clark",
+        age: 32,
+        address: {
+            street: "333 Birch St",
+            city: "City6",
+            state: "State6"
+        },
+        profession: "Lawyer"
+    },
+    {
+        name: "Kevin Davis",
+        age: 45,
+        address: {
+            street: "444 Maple St",
+            city: "City7",
+            state: "State7"
+        },
+        profession: "Chef"
+    },
+    {
+        name: "Linda Anderson",
+        age: 27,
+        address: {
+            street: "555 Willow St",
+            city: "City8",
+            state: "State8"
+        },
+        profession: "Nurse"
+    }
+];
+
+    const dataList = document.getElementById("dataList");
+
+    // Function to fetch data from the API and populate the list
+    function fetchDataAndPopulateList() {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(user => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML =`
+            <p>${user.name}</p>
+            <p>${user.email}</p>` 
+            dataList.appendChild(listItem);
+          });
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded',fetchDataAndPopulateList)
+  </script>
+</body>
+</html>

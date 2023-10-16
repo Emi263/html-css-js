@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Animation</title>
+  <style>
+    /* CSS for animation */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      transition: transform 1s ease-in-out;
+      
+    }
+    .box.animate {
+      transform: translateX(200px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Animation</h1>
+  
+  <!-- An element with the "box" class -->
+  <div class="box" id="animatedBox"></div>
+  
+  <button id="animateButton">Animate</button>
+  
+  <script>
+    // Get references to elements
+    const animatedBox = document.getElementById("animatedBox");
+    const animateButton = document.getElementById("animateButton");
+    
+    // Add a click event listener to start the animation
+    animateButton.addEventListener("click", () => {
+      if(animateButton.classList.contains('animate')) {
+        animatedBox.classList.remove("animate");
+      }
+      else {
+
+        animatedBox.classList.add("animate");
+      }
+      
+      // Remove the "animate" class after the animation is complete
+      // animatedBox.addEventListener("transitionend", () => {
+      //   animatedBox.classList.remove("animate");
+      // });
+    });
+  </script>
+</body>
+</html>

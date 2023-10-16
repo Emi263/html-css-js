@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation Example</title>
+</head>
+<body>
+  <h1>DOM Manipulation Example</h1>
+
+  <p id="paragraph">This is a paragraph.</p>
+
+  <button id="changeText">Change Text</button>
+  <button id="changeColor">Change Color</button>
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+
+  <script>
+    // Get references to HTML elements using document.getElementById
+    const paragraph = document.getElementById("paragraph");
+    const changeTextButton = document.getElementById("changeText");
+    const changeColorButton = document.getElementById("changeColor");
+    const hideButton = document.getElementById("hide");
+    const showButton = document.getElementById("show");
+
+    // Add event listeners to buttons
+    changeTextButton.addEventListener("click", () => {
+      paragraph.innerText = "Text changed!";
+    });
+
+    changeColorButton.addEventListener("click", () => {
+      paragraph.style.color = "red";
+    });
+
+    hideButton.addEventListener("click", () => {
+      paragraph.style.display = "none";
+    });
+
+    showButton.addEventListener("click", () => {
+      paragraph.style.display = "block";
+    });
+  </script>
+</body>
+</html>
